@@ -1,0 +1,7 @@
+void setip(){
+  
+}
+
+void draw(){
+  
+}
