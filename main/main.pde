@@ -12,11 +12,12 @@ AudioPlayer ap;
 
 float startTime;
 float songLength;
+float [] lerpedBuffer = new float[1024];
 
 void setup()
 {
   fullScreen();
-  
+
   colorMode(HSB);
 
   startTime = millis();
@@ -25,23 +26,27 @@ void setup()
   ap = minim.loadFile("OnlyMP3.to - Cartoon - Why We Lose (Lyrics)-zTL6iep1ZKs-192k-1649942721551.mp3");
   ap.play();
   ab = ap.mix;
-  
+
   songLength = ap.length();
 
- // halfH=height/2;
+  // halfH=height/2;
   colorInc=255/(float)ab.size();
 
   A = new Amelia();
-
+  //AN = new Andre();
+  
+  halfH = height/2;
+  colorInc= 255/(float)ab.size();
 }
 
 Amelia A;
+//Andre AN;
 
 
 float lerpedAverage=0;
-//float halfH;
+float halfH;
 float colorInc;
-//float [] lerpedBuffer=new float [1024];
+
 
 
 void draw()
@@ -54,6 +59,6 @@ void draw()
   } else
   {
     A.pinkWave();
+    //AN.musicWave();
   }
-
 }
